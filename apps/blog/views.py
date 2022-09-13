@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from .models import Blog, Tag, Category
@@ -49,6 +50,7 @@ def blog_single(request, pk):
     for category in categories:
         category.n = len(Blog.objects.filter(category=category))
     tags = Tag.objects.all()
+
     form = CommentForm()
     if request.method == "POST":
         form = CommentForm(request.POST, request.FILES)

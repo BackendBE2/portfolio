@@ -22,7 +22,7 @@ class Tag(models.Model):
 
 
 class Blog(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='cat1')
     title = models.CharField(max_length=221)
     image = models.ImageField(upload_to='blog/')
     content = models.TextField()
